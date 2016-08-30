@@ -1,0 +1,56 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta name="description" content="">
+  <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+</head>
+<body>
+<div class="bs-header" id="content">
+  <div class="container">
+    <h1>Just Input A URL</h1>
+    <div class="form-group">
+      <input type="text" id="url" class="form-control" placeholder="e.g. http://www.baidu.com">
+    </div>
+    <button type="button" class="btn btn-primary" id="snapshot">Snapshot</button>
+    <div id="result" style="border: 1px solid #e1e1e8; margin-top: 10px;">
+
+    </div>
+  </div>
+</div>
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+<script>
+
+  $(document).on('click', '#snapshot', function () {
+    var url = $('#url').val();
+    $.ajax({
+      type:'GET',
+      url:'/?url='+url,
+      success:function (result) {
+        if(result.success==1){
+//          $('#result').html([
+////            '<blockquote>',
+////            '<p>',
+////            result.title,
+////            '</p>',
+////            '</blockquote>',
+////            '<img src="',
+////            result.image,
+////            '" />'
+////          ].join(''))
+          var html='';
+          $.each(result.data,function (i, v) {
+            html+='<blockquote><p>'+v.title+'</p></blockquote>'+
+                    '<img src="/images/'+v.src+'.png"/>';
+          })
+          $('#result').append(html);
+          console.log(html)
+        }
+      }
+    })
+  })
+</script>
+</body>
+</html>

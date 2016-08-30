@@ -1,0 +1,24 @@
+{
+  "name": "phantomjs_Screenshots",
+  "description": "screenshots",
+  "main": "",
+  "authors": [
+    "luozaichun <952467274@qq.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "screenshots"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
