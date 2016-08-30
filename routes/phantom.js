@@ -20,8 +20,9 @@ if (system.args.length === 1) {
   count=system.args[3];
   max=system.args[4];
   page.open(address,function(status){
-    console.log(status);
+    console.log('status:'+status);
     if(status==='success'){
+        console.log(111)
       page.render('../public/images/'+fileName+'.png');
 
     }
