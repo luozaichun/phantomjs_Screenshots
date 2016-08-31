@@ -1,7 +1,6 @@
 var page=require('webpage').create();//创建一个网页对象;
 var system=require('system');
 var address,fileName;
-window.scrollTo(0,10000);//滚动到底部
 // window.document.body.scrollTop = document.body.scrollHeight;//滚动到底部
 // var _height=document.body.offsetHeight;
 // var _width=document.body.offsetWidth;
@@ -39,7 +38,7 @@ if (system.args.length === 1) {
 
     page.viewportSize = {width: bb.width,height: bb.height};
     t=Date.now()-t;
-     
+
     window.setTimeout(function ()
     {
       page.render('../public/images/'+fileName+'.png');
@@ -48,9 +47,6 @@ if (system.args.length === 1) {
 
     // page.close();//释放;
   });
-
-
-
-
+    
 
 }
