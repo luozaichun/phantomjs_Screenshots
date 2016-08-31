@@ -14,7 +14,7 @@
       <input type="text" id="url" class="form-control" placeholder="e.g. http://www.baidu.com">
     </div>
     <button type="button" class="btn btn-primary" id="snapshot">Snapshot</button>
-    <div id="result" style="border: 1px solid #e1e1e8; margin-top: 10px;">
+    <div id="result" style="margin-top: 20px">
 
     </div>
   </div>
@@ -30,20 +30,11 @@
       url:'/url?url='+url,
       success:function (result) {
         if(result.success==1){
-//          $('#result').html([
-////            '<blockquote>',
-////            '<p>',
-////            result.title,
-////            '</p>',
-////            '</blockquote>',
-////            '<img src="',
-////            result.image,
-////            '" />'
-////          ].join(''))
           var html='';
           $.each(result.data,function (i, v) {
-            html+='<blockquote><p>'+v.title+'</p></blockquote>'+
-                    '<img src="/images/'+v.src+'.png"/>';
+            html+='<div style="margin-bottom: 30px;border: 1px solid #e1e1e8;"><h3>'+v.title+'</h3>' +
+                    '<img src="/images/'+v.src+'.png"/>'
+                    '</div>';
           })
           $('#result').append(html);
           console.log(html)
