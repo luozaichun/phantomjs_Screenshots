@@ -19,6 +19,7 @@ router.get('/url', function (req, res) {
 
         var process = spawn('phantomjs', ['phantom.js', url, randomPicName, count, max], {cwd: './routes/'});
         process.stdout.setEncoding('utf8');
+        
         process.stderr.on('data', function (data) {
             console.log("stderr" + data);
         });
@@ -28,11 +29,13 @@ router.get('/url', function (req, res) {
             }
         });
         process.on('exit', function (code) {
+            var _this=this;
+          
             res.json({
                 success: 1,
                 data: [{
                     title: url,
-                    src: randomPicName
+                    src:   randomPicName
                 }]
             })
         });

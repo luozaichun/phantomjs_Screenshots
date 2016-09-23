@@ -12,7 +12,6 @@ var address,fileName;
 // //禁止Javascript，允许图片载入;
 // // 并将userAgent改为"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.31 (KHTML, like Gecko) PhantomJS/19.0";
 
-//
 if (system.args.length === 1) {
   console.log('Try to pass some args when invoking this script!');
   phantom.exit(1);
